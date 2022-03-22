@@ -40,7 +40,7 @@ const Board = () => {
     if (winningSymbol === null) {
       return null;
     }
-    return winningSymbol === "x" ? "Player 1" : "Player 2";
+    return winningSymbol === "X" ? "Player 1 !" : "Player 2 !";
   };
   const winningCondition = (grid) => {
     if (
