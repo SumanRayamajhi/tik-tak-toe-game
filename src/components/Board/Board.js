@@ -5,8 +5,18 @@ import "./Board.css";
 const Board = () => {
   const [player, setPlayer] = useState("Player 1");
   const [winner, setWinner] = useState(null);
+  const [grid, setGrid] = useState([
+    ["", "", ""],
+    ["", "", ""],
+    ["", "", ""],
+  ]);
+
   const handleClick = (row, column) => {
     if (winner !== null) {
+      return;
+    }
+    if (grid[row][column] !== "") {
+      alert("Already clicked !");
       return;
     }
     if (player === "Player 1") {
@@ -19,11 +29,6 @@ const Board = () => {
     setWinner(findWinner(grid));
     setGrid(grid);
   };
-  const [grid, setGrid] = useState([
-    ["", "", ""],
-    ["", "", ""],
-    ["", "", ""],
-  ]);
 
   const reset = () => {
     setGrid([
@@ -100,7 +105,6 @@ const Board = () => {
     ) {
       return grid[0][2];
     }
-
     return null;
   };
 
